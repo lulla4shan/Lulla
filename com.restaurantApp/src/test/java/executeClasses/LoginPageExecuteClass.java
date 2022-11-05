@@ -12,14 +12,14 @@ public class LoginPageExecuteClass extends BaseClass {
 	
 	LoginPageClass lp;
 	
-  @Test
+  @Test(priority = 1, groups = {"group1"})
   public void verifyTheLogoIsDisplayedOrNot() {
 	  lp = new LoginPageClass(driver);
 	  boolean actual = lp.isLogoDisplayed();
 	  Assert.assertTrue(actual);
   }
   
-  @Test
+  @Test(priority = 2, groups = {"group2"})
   public void verifySuccessfulLogin() throws IOException {
 	  lp = new LoginPageClass(driver);
 	  lp.enterUsername(lp.readUserName(0, 0));
@@ -29,7 +29,7 @@ public class LoginPageExecuteClass extends BaseClass {
 	  Assert.assertTrue(actual);
   }
   
-  @Test(dataProvider = "DataProvider",dataProviderClass = DataProviderClass.class)
+  @Test(priority = 3,groups = {"group2"}, dataProvider = "DataProvider",dataProviderClass = DataProviderClass.class)
   public void verifyUnsuccessfulLogin(String name, String passwd) {
 	  lp = new LoginPageClass(driver);
 	  lp.enterUsername(name);
