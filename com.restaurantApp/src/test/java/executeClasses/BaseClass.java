@@ -74,9 +74,6 @@ public class BaseClass {
 		driver.close();
 	}
 
-	private Object captureScreenshot(WebDriver driver2) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 }
